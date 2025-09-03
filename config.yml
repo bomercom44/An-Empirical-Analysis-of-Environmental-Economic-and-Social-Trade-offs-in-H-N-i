@@ -1,0 +1,91 @@
+# ========= Paths =========
+# Put your cleaned input CSV at the repo root or change this path.
+data_in: ./schedule_with_arrival_times.csv
+
+# All outputs will be written here.
+outputs_dir: ./outputs
+kpis_csv: ./outputs/kpis_driverday.csv
+legs_csv: ./outputs/legs_enriched.csv
+logs_dir: ./outputs/logs
+
+# ========= Dates / Locale =========
+# Your CSV uses dd/mm/YYYY (e.g., 13/03/2025)
+date_column: date
+date_format: "%d/%m/%Y"
+dayfirst: true
+timezone: "Asia/Ho_Chi_Minh"
+
+# ========= SOP timing constants =========
+# BAU = 10 min/stop; we also run robustness at 8/12/15.
+depot_load_minutes: 30
+service_minutes_list: [8, 10, 12, 15]
+paid_break_minutes: 60
+
+# Lateness cut-off from company SOP (no grace): deliveries after 18:30 are "late".
+late_cutoff_hhmm: "18:30"
+
+# ========= Social (DOBI) settings =========
+# Low-speed thresholds in km/h; 15 is your main spec, 12/18 for sensitivity.
+low_speed_thresholds: [12, 15, 18]
+# Weights: congestion, stop density (stops/worked hr), shift-length variability
+dobi_weights: [0.4, 0.3, 0.3]
+
+# ========= Emissions factors =========
+# kg CO2 per litre of fuel (standard factors)
+co2_per_litre:
+  diesel: 2.68
+  petrol: 2.31
+
+# ========= Vehicle fuel consumption (L/100km) =========
+# Include exact strings that appear in your CSV to avoid KeyErrors.
+l_per_100km:
+  "Suzuki Super Carry Pro": 7.5
+  "Suzuki Super Carry Pro (Euro 2)": 7.5
+  "Hyundai Mighty N250SL": 11.0
+  "Hyundai Mighty N250SL (Euro 4)": 11.0
+  "Isuzu QKR (Euro 4)": 10.0
+  "Thaco K165S": 10.0
+  "Thaco K165S (Euro 2)": 10.0
+
+# ========= Costing options =========
+# Use monthly_totals (your stated totals for the 4 vehicles) for fuel & maintenance,
+# and monthly_costs (labour/other) as a per-day allocation. This mirrors your dissertation.
+costing_mode: monthly_totals
+
+monthly_totals_vnd:
+  fuel_total: 21000000        # total petrol+diesel for the study month (all 4 vehicles)
+  maintenance_total: 3600000  # total maintenance for the study month (all 4 vehicles)
+
+# Labour/other monthly costs (exclude "maintenance" here to avoid double counting).
+monthly_costs:
+  driver: 48000000
+  assistant: 38800000
+  other: 7500000
+working_days_per_month: 26
+
+# If you ever switch to per-litre pricing (NOT used when costing_mode=monthly_totals)
+fuel_price_vnd:
+  diesel: 21000
+  ron95: 23500
+
+# ========= Geocoding QA =========
+# Column in your CSV containing Google Geocoding geometry type:
+# one of ROOFTOP, RANGE_INTERPOLATED, GEOMETRIC_CENTER, APPROXIMATE
+geocode_quality_field: geometry_type
+
+# Optional guardrails (only used if your QA code reads them)
+qa:
+  # Speeds flagged as implausible (not dropped by default)
+  max_speed_kmh: 120
+  # Haversine/route ratio bounds (only for reporting when you enable it)
+  ratio_bounds:
+    min: 0.60
+    max: 1.40
+  # Geometry types to flag (not drop) as lower confidence
+  flag_geometry_types: ["GEOMETRIC_CENTER", "APPROXIMATE"]
+
+# ========= Reproducibility / naming (optional) =========
+# File-name stems used by some helper scripts (they append suffixes per scenario)
+stems:
+  kpis_stem: "kpis_driverday"
+  legs_stem: "legs_enriched"
