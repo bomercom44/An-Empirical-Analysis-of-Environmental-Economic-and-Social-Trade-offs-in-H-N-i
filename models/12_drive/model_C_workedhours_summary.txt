@@ -1,0 +1,32 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           worked_hours   R-squared:                       0.665
+Model:                            OLS   Adj. R-squared:                  0.643
+Method:                 Least Squares   F-statistic:                     54.57
+Date:                Wed, 27 Aug 2025   Prob (F-statistic):           1.00e-27
+Time:                        06:42:24   Log-Likelihood:                -46.581
+No. Observations:                  96   AIC:                             107.2
+Df Residuals:                      89   BIC:                             125.1
+Df Model:                           6                                         
+Covariance Type:                  HC1                                         
+============================================================================================
+                               coef    std err          z      P>|z|      [0.025      0.975]
+--------------------------------------------------------------------------------------------
+Intercept                   -1.0681      1.829     -0.584      0.559      -4.652       2.516
+C(driver_id)[T.D-02]        -0.4555      0.099     -4.593      0.000      -0.650      -0.261
+C(driver_id)[T.D-03]        -0.5456      0.143     -3.807      0.000      -0.826      -0.265
+C(driver_id)[T.D-04]        -0.8538      0.093     -9.197      0.000      -1.036      -0.672
+distance_km                  0.0552      0.005     10.246      0.000       0.045       0.066
+stops                        0.2480      0.041      6.026      0.000       0.167       0.329
+low_speed_share_time_t12     0.4612      0.589      0.783      0.433      -0.693       1.615
+==============================================================================
+Omnibus:                       38.957   Durbin-Watson:                   2.108
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              130.707
+Skew:                          -1.314   Prob(JB):                     4.14e-29
+Kurtosis:                       8.077   Cond. No.                     4.06e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC1)
+[2] The condition number is large, 4.06e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.

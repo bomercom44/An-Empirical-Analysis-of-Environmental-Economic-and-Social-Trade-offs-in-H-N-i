@@ -1,0 +1,29 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           co2_g_per_km   R-squared:                       1.000
+Model:                            OLS   Adj. R-squared:                  1.000
+Method:                 Least Squares   F-statistic:                 5.959e+27
+Date:                Wed, 27 Aug 2025   Prob (F-statistic):               0.00
+Time:                        06:42:26   Log-Likelihood:                 2421.6
+No. Observations:                  96   AIC:                            -4831.
+Df Residuals:                      90   BIC:                            -4816.
+Df Model:                           5                                         
+Covariance Type:                  HC1                                         
+========================================================================================
+                           coef    std err          z      P>|z|      [0.025      0.975]
+----------------------------------------------------------------------------------------
+Intercept              173.2500   3.66e-12   4.74e+13      0.000     173.250     173.250
+C(driver_id)[T.D-02]    94.7500   8.81e-13   1.08e+14      0.000      94.750      94.750
+C(driver_id)[T.D-03]    94.7500   8.96e-13   1.06e+14      0.000      94.750      94.750
+C(driver_id)[T.D-04]   121.5500   1.02e-12   1.19e+14      0.000     121.550     121.550
+avg_speed_kmh        -1.196e-13   1.99e-13     -0.601      0.548    -5.1e-13     2.7e-13
+stops_per_km         -1.066e-14   8.06e-13     -0.013      0.989   -1.59e-12    1.57e-12
+==============================================================================
+Omnibus:                       26.901   Durbin-Watson:                   0.028
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               66.640
+Skew:                           0.970   Prob(JB):                     3.38e-15
+Kurtosis:                       6.591   Cond. No.                         212.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC1)

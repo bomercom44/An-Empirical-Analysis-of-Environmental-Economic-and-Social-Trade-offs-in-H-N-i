@@ -1,0 +1,5 @@
+compare_to,jaccard_overlap_vs_BAU,frontier_size_ref,frontier_size_s
+8,0.0,10,10
+10,1.0,10,10
+12,0.0,10,15
+15,0.0,10,15

@@ -1,0 +1,40 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           worked_hours   R-squared:                       0.131
+Model:                            OLS   Adj. R-squared:                  0.060
+Method:                 Least Squares   F-statistic:                     2.822
+Date:                Wed, 27 Aug 2025   Prob (F-statistic):            0.00166
+Time:                        17:20:32   Log-Likelihood:                -281.14
+No. Observations:                 160   AIC:                             588.3
+Df Residuals:                     147   BIC:                             628.3
+Df Model:                          12                                         
+Covariance Type:                  HC3                                         
+========================================================================================
+                           coef    std err          z      P>|z|      [0.025      0.975]
+----------------------------------------------------------------------------------------
+Intercept                1.6436      7.067      0.233      0.816     -12.208      15.495
+C(driver_id)[T.D-02]     0.0439      0.439      0.100      0.920      -0.817       0.904
+C(driver_id)[T.D-03]     0.2319      0.417      0.557      0.578      -0.585       1.048
+C(driver_id)[T.D-04]     0.1327      0.517      0.257      0.798      -0.881       1.147
+C(weekday)[T.1]         -0.0632      0.461     -0.137      0.891      -0.966       0.840
+C(weekday)[T.2]         -0.3493      0.521     -0.670      0.503      -1.371       0.673
+C(weekday)[T.3]          0.1035      0.380      0.273      0.785      -0.641       0.848
+C(weekday)[T.4]         -0.1597      0.401     -0.399      0.690      -0.945       0.625
+C(weekday)[T.5]         -0.1387      0.502     -0.276      0.782      -1.123       0.845
+C(weekday)[T.6]         -0.3203      0.478     -0.670      0.503      -1.257       0.617
+low_speed_share          1.6920      1.623      1.042      0.297      -1.489       4.873
+distance_km              0.0277      0.029      0.952      0.341      -0.029       0.085
+stops                    0.2355      0.127      1.856      0.063      -0.013       0.484
+==============================================================================
+Omnibus:                       53.388   Durbin-Watson:                   0.086
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               10.312
+Skew:                           0.237   Prob(JB):                      0.00577
+Kurtosis:                       1.850   Cond. No.                     6.48e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+[2] The condition number is large, 6.48e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+[Note] Condition number: 6476.84

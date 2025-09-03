@@ -1,0 +1,21 @@
+Validation report for: .\outputs\kpis_driverday_12_drive.csv
+Tag: 12_drive
+
+Reference scenario: BAU=10 used as reference.
+
+A) Rank stability (Kendall's tau) of S_DOBI ranks by driver vs reference:
+ compare_to  kendall_tau      p_value  n_drivers
+          8     0.901754 9.996593e-39          4
+         12     0.903070 7.794678e-39          4
+         15     0.809211 1.618454e-31          4
+
+B) Frontier overlap (Jaccard) vs reference:
+ compare_to  jaccard_overlap_vs_BAU  frontier_size_ref  frontier_size_s
+          8                     0.0                 13               11
+         10                     1.0                 13               13
+         12                     0.0                 13               13
+         15                     0.0                 13               19
+
+Interpretation:
+  - Tau close to 1.0 indicates very stable ordering of driver burden across service-time assumptions.
+  - Jaccard closer to 1.0 indicates a very similar set of efficient days under different service-time assumptions.
