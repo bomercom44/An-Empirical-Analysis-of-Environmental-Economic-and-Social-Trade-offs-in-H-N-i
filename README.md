@@ -6,6 +6,16 @@ This repository contains all code, configuration, and processed data needed to r
 No live Google APIs are called here; the project uses exported travel times and geocoding results.
 All runs are deterministic given the inputs and config.
 
+requirements:
+pandas>=2.3
+numpy>=2.3
+PyYAML>=6.0
+statsmodels>=0.14
+scikit-learn>=1.7
+matplotlib>=3.10
+tqdm>=4.66
+
+
 1) What you will reproduce
 
 KPIs (driver–day): emissions/cost intensities, worked hours, DOBI and components.
